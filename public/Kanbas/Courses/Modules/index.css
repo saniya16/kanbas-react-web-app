@@ -30,3 +30,11 @@
 .wd-modules > li {
   margin-bottom: 20px;
 }
+
+.wd-head{
+  font-size: 20px;
+}
+
+.wd-modules > li > ul > li > span {
+  margin-left: 30px;
+}
