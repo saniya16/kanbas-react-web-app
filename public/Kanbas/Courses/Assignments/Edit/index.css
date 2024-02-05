@@ -4,17 +4,22 @@
  .wd-mainEdit-class > div > span > a.wd-module-name{
     color:red;
 }
-.wd-top-bar{
-    margin-bottom: 10;
+.wd-top{
+    margin-top: 10;
  }
 
- .wd-top-bar> span > a {
+ .wd-top-bar > a {
     text-decoration: none;
     width: 100%;
-    color: inherit;
+    color: #ff7070;
   }
 
-  .wd-font-size-large{
+.wd-top-bar-text > a{
+    text-decoration: none;
+    color: black;
+}
+
+.wd-font-size-large{
     font-size: larger;
 }
 .wd{
