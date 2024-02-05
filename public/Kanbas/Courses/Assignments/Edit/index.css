@@ -1,0 +1,45 @@
+.wd-mainEdit-class{
+    width: 100%;
+ }
+ .wd-mainEdit-class > div > span > a.wd-module-name{
+    color:red;
+}
+.wd-top-bar{
+    margin-bottom: 10;
+ }
+
+ .wd-top-bar> span > a {
+    text-decoration: none;
+    width: 100%;
+    color: inherit;
+  }
+
+  .wd-font-size-large{
+    font-size: larger;
+}
+.wd{
+    text-align: end;
+}
+.wd-block{
+    display: block;
+}
+.wd-border{
+
+    border-width: 1px; 
+    border-style: solid;
+}
+
+.wd-fg-color-green{
+    color:green;
+}
+.wd-button{
+    color: black;
+    background-color: rgb(223, 222, 222);
+}
+.wd-margin-check{
+    margin-right: 10px
+}
+
+.wd {
+    text-align: end;
+}
