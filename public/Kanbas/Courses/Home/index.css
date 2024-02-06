@@ -109,3 +109,48 @@
   text-decoration: none;
   color: black;
 }
+
+.wd-top-bar > a {
+  text-decoration: none;
+  width: 100%;
+  color: #ff7070;
+}
+
+.wd-top-bar-text > a{
+  text-decoration: none;
+  color: black;
+}
+
+.wd-kanbas-nav-side-bar{
+  list-style: none;
+  padding: 0px;
+  width: 300px;
+  margin: 0px;
+  border-radius: 0%;
+}
+.wd-kanbas-nav-side-bar li{
+  padding: 10px;
+  font-size: 0.8em;
+  /* text-align: center; */
+  margin-bottom: 5px;
+  margin-left: 40px;
+}
+
+.wd-kanbas-nav-side-bar li a{
+  color: red;
+  text-decoration: none;
+  /* margin-left: 5px; */
+  font-size: 1.5em;
+
+}
+.wd-kanbas-nav-side-bar li i{
+  color: red;
+  font-size: 1.3em;
+  margin-bottom: 5px;
+  text-align: right   ;
+  padding-right: 25;
+}
+
+.wd-text-center{
+  text-align: center;
+}

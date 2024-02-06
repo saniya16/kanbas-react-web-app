@@ -16,7 +16,7 @@
   <body>
     <div class="d-flex gap-3">
       <div class="d-none d-md-block">
-        <ul class="wd-kanbas-navigation">
+        <ul class="wd-kanbas-navigation  d-none d-lg-block">
           <li><a href="http://northeastern.edu">N</a></li>
           <li>
             <a href="/Kanbas/Account/Profile/screen.html"
@@ -61,26 +61,51 @@
       </div>
       <div class="wd-main-class">
         <div class="row pt-3 pb-2">
-          <div class="d-flex justify-content-between">
-            <div class="d-flex">
-              <a href="#"><i class="fa-solid fa-bars" style="margin-top: 4px; color:red"></i></a>
-            <nav style="--bs-breadcrumb-divider: '>';  margin-left: 10px" aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item wd-top-bar"><a href="/Kanbas/Courses/Home/screen.html">CS5610.11744.202310</a></li>
-                <li class="breadcrumb-item active wd-top-bar-text"><a href="#">Modules</a></li>
-              </ol>
-            </nav>
+          <div class="d-flex d-none d-lg-block justify-content-between">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex">
+                  <a href="#"><i class="fa-solid fa-bars" style="margin-top: 4px; color:red"></i></a>
+                <nav style="--bs-breadcrumb-divider: '>';  margin-left: 10px" aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item wd-top-bar"><a href="/Kanbas/Courses/Home/screen.html">CS5610.11744.202310</a></li>
+                    <li class="breadcrumb-item active wd-top-bar-text"><a href="#">Modules</a></li>
+                  </ol>
+                </nav>
+                </div>
+              </div>
+
+              <div class="col">
+                <a class="float-end" href="#">
+                  <button class="btn btn-secondary btn-sm" style='margin-right:10px;' href="#">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                     Student View</button></a>
+
+              </div>
+
             </div>
-            <a href="#">
-            <button class="btn btn-secondary btn-sm" style='margin-right:10px;' href="#">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-               Student View</button></a>
+            
+            
+            
+            
           </div>
+
+          <div class="wd-flex-grow-1 d-block d-lg-none wd-inline" >
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100" >
+                <div class="container-fluid">
+                    <div class="float-start "> <a href="/Kanbas/Courses/Home/MainNavBar.html"><i style="color: white;" class="fa fa-bars wd-fg-color-green ps-3  wd-hover" aria-hidden="true"></i></a></div>
+                    <div class="wd-text-center pb-2 pt-2" style="color: white;" >202410.SEC-01 Fall 23 <br>Home</div>
+                        <a href="/Kanbas/Courses/Home/CourseNavBar.html">
+                        <i  style="color: white;" class=" wd-text-right float-end fa fa-chevron-down pe-3 mb-1 pt-0 wd-fg-color-white "  aria-hidden="true"></i>   
+                    </a>
+                </div>  
+            </nav>
+        
         </div>
         <div class="row">
           <hr/>
           <div class="col-auto">
-            <div class="d-none d-md-block">
+            <div class="d-none d-lg-block">
               <ul class="wd-navigation">
                 <li class="wd-active">
                   <a href="/Kanbas/Courses/Home/screen.html">Home</a>
