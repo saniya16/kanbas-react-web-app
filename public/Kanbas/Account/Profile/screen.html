@@ -1,66 +1,112 @@
 <html>
-    <body>
-        <table cellpadding="10">
-            <tbody valign="top">
-                <tr>
-                    <td align="left">
-                        <ul>
-                            <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
-                            <li><a href="#">Calendar</a></li>
-                            <li><a href="#">Inbox</a></li>
-                            <li><a href="#">History</a></li>
-                            <li><a href="#">Studio</a></li>
-                            <li><a href="#">Commons</a></li>
-                            <li><a href="#">Help</a></li>
-                        </ul>
-                    </td>
+  <head>
+    <title>EditProfile</title>
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    
+    <script
+      src="https://kit.fontawesome.com/9bb870483a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="d-flex gap-3">
+      <div class="d-none d-md-block">
+        <ul class="wd-kanbas-navigation">
+          <li><a href="http://northeastern.edu">N</a></li>
+          <li class="wd-active">
+            <a href="/Kanbas/Account/Profile/screen.html"
+              ><i
+                class="fa fa-user-fa fa-user-circle"
+                style="color: black"
+                aria-hidden="true"
+              ></i
+              >Account</a
+            >
+          </li>
+          <li>
+            <a href="/Kanbas/Dashboard/screen.html"
+              ><i class="fa fa-tachometer"></i> Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="/Kanbas/Courses/Home/screen.html"
+              ><i class="fa-solid fa-book"></i>Courses</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-calendar"></i>Calendar</a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-envelope-open-text"></i><br />Inbox</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fa-regular fa-clock"></i>History</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-desktop"></i>Studio</a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-right-from-bracket"></i>Commons</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-circle-question"></i><br />Help</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-auto">
+        <ul>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
+          <li><a href="#">Files</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">ePortfolios</a></li>
+          <li><a href="#">Shared Content</a></li>
+          <li><a href="#">The Hub</a></li>
+          <li><a href="#">Qwickly Course Tools</a></li>
+          <li><a href="#">Global Announcements</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <td align="left">
+          Saniya Anklesaria's Profile
+          <hr />
 
-                    <td align="left">
-                        <ul>
-                            <li><a href="#">Notifications</a></li>
-                            <li><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
-                            <li><a href="#">Files</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">ePortfolios</a></li>
-                            <li><a href="#">Shared Content</a></li>
-                            <li><a href="#">The Hub</a></li>
-                            <li><a href="#">Qwickly Course Tools</a></li>
-                            <li><a href="#">Global Announcements</a></li>
-                        </ul>
-                    </td>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <h1>Saniya Anklesaria</h1>
+                  <h3>Contact</h3>
+                  <span
+                    >No registered services, you can add some on the
+                    <a href="#">settings</a> page.</span
+                  >
 
-                    <td align="left">
-                        Saniya Anklesaria's Profile
-                        <hr>
+                  <h3>Biography</h3>
+                  Faculty, Software Engineer, AI, Space, and renewables
+                  enthusiast.
 
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <h1>Saniya Anklesaria</h1> 
-                                    <h3>Contact</h3>
-                                    <span>No registered services, you can add some on the <a href="#">settings</a> page.</span> 
-            
-                                    <h3>Biography</h3>
-                                    Faculty, Software Engineer, AI, Space, and renewables enthusiast.
-            
-                                    <h3>Links</h3>
-                                    <a href="#">Youtube</a>
-            
-                                    </td>
-                                    <td valign="top">
-                                    <a href="/Kanbas/Account/Profile/Edit/screen.html"><button type="button">Edit Profile</button> </a>
-                        
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
+                  <h3>Links</h3>
+                  <a href="#">Youtube</a>
+                </td>
+                <td valign="top">
+                  <a href="/Kanbas/Account/Profile/Edit/screen.html"
+                    ><button type="button">Edit Profile</button>
+                  </a>
+                </td>
+              </tr>
             </tbody>
-        </table>
-        
-    </body>
+          </table>
+        </td>
+      </div>
+    </div>
+  </body>
 </html>
