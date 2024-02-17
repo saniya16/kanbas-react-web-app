@@ -1,0 +1,18 @@
+[ { "_id": "CS101", "name": "ReactJS", "number": "CS1234", "term":"Spring2024", "startDate": "2024-01-10",
+    "endDate": "2024-05-15", "image": "reactjs.jpg"  },
+  { "_id": "CS102", "name": "DBMS", "number": "CS5200", "term":"Spring2024","startDate": "2024-01-10",
+    "endDate": "2024-05-15", "image": "dbms.png"  },
+  { "_id": "CS103", "name": "Algorithms", "number": "CS5800", "term":"Spring2024", "startDate": "2024-01-10",
+    "endDate": "2024-05-15", "image": "algo.png"  },
+    { "_id": "CS104", "name": "Machine Learning", "number": "CS6101", "term":"Spring2024", "startDate": "2024-01-10",
+    "endDate": "2024-05-15", "image": "ML.jpeg"  },
+  { "_id": "CS105", "name": "Cloud Computing", "number": "CS4010", "term":"Spring2024", "startDate": "2024-01-10",
+    "endDate": "2024-05-15", "image": "cloud.jpeg"  },
+  { "_id": "CS106", "name": "NLP", "number": "CS4630", "term":"Spring2024", "startDate": "2024-01-10",
+    "endDate": "2024-05-15", "image": "NLP.jpeg"  },
+    { "_id": "CS107", "name": "OOP", "number": "CS6100", "term":"Spring2024","startDate": "2024-01-10",
+    "endDate": "2024-05-15", "image": "java.png"  }  ]
+
+
+  
+

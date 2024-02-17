@@ -1,0 +1,26 @@
+[
+    {
+      "_id": "M101",
+      "name": "Week 0 - Intro",
+      "description": "Basic principles.",
+      "course": "CS101",
+      "lessons": [
+        {
+          "_id": "L101",
+          "name": "LEARNING OBJECTIVES",
+          "description": "A brief history of rocketry and space exploration.",
+          "module": "M101",
+          "sub":[
+            {
+            "_id": "S101",
+            "name": "Introduction to the course",
+            "subModule": "L101"
+
+            }
+            
+
+          ]
+        }
+      ]
+    }
+  ]
