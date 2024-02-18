@@ -4,6 +4,11 @@ import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
+import AssignmentEditor from "./Assignments/Editor";
+
+
+import Assignments from "./Assignments";
+import Grades from "./Grades";
 function Courses() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
@@ -20,9 +25,9 @@ function Courses() {
             <Route path="Home" element={<Home/>} />
             <Route path="Modules" element={<Modules/>} />
             <Route path="Piazza" element={<h1>Piazza</h1>} />
-            <Route path="Assignments" element={<h1>Assignments</h1>} />
-            <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
-            <Route path="Grades" element={<h1>Grades</h1>} />
+            <Route path="Assignments" element={<Assignments/>} />
+            <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
+            <Route path="Grades" element={<Grades />} />
             <Route path="People" element={<h1>People</h1>} />
             <Route path="Panopto Video" element={<h1>Panopto Video</h1>} />
             <Route path="Discussions" element={<h1>Discussions</h1>} />

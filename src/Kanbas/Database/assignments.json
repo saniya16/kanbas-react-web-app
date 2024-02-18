@@ -1,0 +1,65 @@
+[
+    {
+      "_id": "A101",
+      "title": "Propulsion Assignment",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS101"
+    },
+    {
+      "_id": "A102",
+      "title": "Combustion Analysis",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS101"
+    },
+    {
+      "_id": "A103",
+      "title": "Nozzle Design Project",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS101"
+    },
+    {
+      "_id": "A201",
+      "title": "Aerodynamics Quiz",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS102"
+    },
+    {
+      "_id": "A202",
+      "title": "Flow Analysis",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS102"
+    },
+    {
+      "_id": "A203",
+      "title": "Heating Analysis",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS102"
+    },
+    {
+      "_id": "A301",
+      "title": "Structural Design Task",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS103"
+    },
+    {
+      "_id": "A302",
+      "title": "Orbital Calculations",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS103"
+    },
+    {
+      "_id": "A303",
+      "title": "Systems Engineering Exam",
+      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
+      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "course": "CS103"
+    }
+  ]
