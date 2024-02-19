@@ -1,65 +1,65 @@
 [
     {
       "_id": "A101",
-      "title": "Propulsion Assignment",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "HTML Assignment",
+      "description": "Build Kanbas using HTML basics",
+      "dueDateTime": "Jan 20, 2024 at 11:59pm",
       "course": "CS101"
     },
     {
       "_id": "A102",
-      "title": "Combustion Analysis",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "CSS Assignment",
+      "description": "Style Kanbas using CSS basics",
+      "dueDateTime": "Jan 27, 2024 at 11:59pm",
       "course": "CS101"
     },
     {
       "_id": "A103",
-      "title": "Nozzle Design Project",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "NodeJS Assignment",
+      "description": "Switch to NodeJS to create a server side application.",
+      "dueDateTime": "Feb 3, 2024 at 11:59pm",
       "course": "CS101"
     },
     {
       "_id": "A201",
-      "title": "Aerodynamics Quiz",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "Build File Database",
+      "description": "Experiment with navigating the file system in R.",
+      "dueDateTime": "Jan 20, 2024 at 11:59pm",
       "course": "CS102"
     },
     {
       "_id": "A202",
-      "title": "Flow Analysis",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "Build Conceptual & Logical Data Models",
+      "description": "Express the data model in a UML Class Diagram ",
+      "dueDateTime": "Jan 27, 2024 at 11:59pm",
       "course": "CS102"
     },
     {
       "_id": "A203",
-      "title": "Heating Analysis",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "Normalize a Schema",
+      "description": "Normalize a relational schema into at least Third Normal Form (3NF) ",
+      "dueDateTime": "Feb 3, 2024 at 11:59pm",
       "course": "CS102"
     },
     {
       "_id": "A301",
-      "title": "Structural Design Task",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "Sorting Algorithms Analysis",
+      "description": "Implement and analyze various sorting algorithms such as Bubble Sort, QuickSort, and Merge Sort.",
+      "dueDateTime": "Jan 20, 2024 at 11:59pm",
       "course": "CS103"
     },
     {
       "_id": "A302",
-      "title": "Orbital Calculations",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "Dynamic Programming - Knapsack Problem:",
+      "description": "Solve the 0/1 Knapsack problem using dynamic programming.",
+      "dueDateTime": "Jan 24, 2024 at 11:59pm",
       "course": "CS103"
     },
     {
       "_id": "A303",
-      "title": "Systems Engineering Exam",
-      "description": "Week 0 - SETUP - Week starting on Monday Sept 5th (9/5/2022) Module",
-      "dueDateTime": "Sept 18, 2022 at 11:59pm",
+      "title": "Graph Algorithms - Shortest Path",
+      "description": "Implement algorithms for finding the shortest path in a graph, such as Dijkstra's and Bellman-Ford.",
+      "dueDateTime": "Feb 3, 2024 at 11:59pm",
       "course": "CS103"
     }
   ]
