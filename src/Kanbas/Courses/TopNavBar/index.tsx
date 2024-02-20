@@ -18,16 +18,23 @@ function Navbar() {
                     <div className="col">
                         <div className="d-flex">
                             <Link to={"#"}><FaBars className="me-2" style={{ marginBottom: "3px", color: "#ff7070" }} /></Link>
-                            <nav className="wd-flex-grow-1 wd-inline" aria-label="breadcrumb">
+                            <nav className="wd-flex-grow-1 wd-inline wd-nav-style" aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item wd-top-bar"><Link to={`/Kanbas/Courses/${course?._id}/Home`}>{course?.number}</Link></li>
-                                    <li className="breadcrumb-item active wd-top-bar-text"><Link to={"#"}>{decodeURIComponent(screen)}</Link></li>
+                                    <li className="breadcrumb-item wd-top-bar">
+                                        <Link to={`/Kanbas/Courses/${course?._id}/Home`}>{course?.number}</Link>
+                                    </li>
+                                    <li className="breadcrumb-item active wd-top-bar-text">
+                                        <Link to={"#"}>{decodeURIComponent(screen)}</Link>
+                                    </li>
+                                    {assignment && <li className="breadcrumb-item active wd-top-bar-text">
+                                        <Link to={"#"}>{decodeURIComponent(assignment)}</Link>
+                                    </li>}
                                 </ol>
                             </nav>
                         </div>
                     </div>
                     <div className="col">
-                        {(pathname.includes("Home") || pathname.includes("Modules")) && <StudentViewButton />}
+                        {(screen === "Home" || screen === "Modules") && <StudentViewButton />}
                     </div>
                 </div>
             </div>

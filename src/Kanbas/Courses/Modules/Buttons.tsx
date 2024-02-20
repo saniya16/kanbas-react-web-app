@@ -1,5 +1,6 @@
 import { FaEllipsisV, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ModuleButtons() {
     return (
@@ -14,7 +15,7 @@ function ModuleButtons() {
 
                 View Progress</Link>
 
-            <div className="dropdown">
+                <div className="dropdown">
                 <Link to={"#"} className="btn btn-secondary btn-sm dropdown-toggle wd-button" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown">
                     <i className="fa fa-check-circle-o" style={{ color: "green" }}></i>
                     Publish All</Link>

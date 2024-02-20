@@ -1,26 +1,38 @@
 import IfElse from "./conditionals/IfElse";
 import TernaryOperator from "./conditionals/TernaryOperator";
-import WorkingWithFunction from "./WorkingWithFunctions/WorkingWithFunction";
+import WorkingWithFunction from "./functions/WorkingWithFunction";
 import BooleanVariable from "./variables/BooleanVariables";
 import VariablesAndConstants from "./variables/VariablesAndConstants";
 import VariablesTypes from "./variables/VariableTypes";
-import WorkingWithArray from "./WorkingWithArray/WorkingWithArray";
+import WorkingWithArray from "./arrays/WorkingWithArray";
+import VariableTypes from "./variables/VariableTypes";
+import BooleanVariables from "./variables/BooleanVariables";
+import WorkingWithFunctions from "./WorkingWithFunctions";
+import JsonStringify from "./json/JsonStringify";
+import TemplateLiterals from "./strings/TemplateLiterals";
+import House from "./json/House";
+import Destructing from "./json/Destructing";
+import Spreading from "./json/Spreading";
+import FunctionDestructing from "./functions/FunctionDestructing";
 
 function JavaScript() {
     console.log("Hello World")
-    return(
-       <div>
+    return (
+      <div>
           <h1>JavaScript</h1>
-          <VariablesAndConstants/>
-          <VariablesTypes/>
-          <BooleanVariable/>
-          <IfElse/>
-          <TernaryOperator/>
-          <WorkingWithFunction/>
-          <WorkingWithArray/>
-       </div>
-    );
+          <VariablesAndConstants />
+          <VariableTypes />
+          <BooleanVariables />
+          <IfElse />
+          <TernaryOperator />
+          <WorkingWithFunctions />
+          <JsonStringify />
+          <TemplateLiterals />
+          <House />
+          <Spreading />
+          <Destructing />
+          <FunctionDestructing />
+      </div>
+  );
  }
  export default JavaScript
- 
- 
