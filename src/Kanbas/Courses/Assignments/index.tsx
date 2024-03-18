@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import "./index.css"
 import { FaCheckCircle, FaChevronDown, FaEllipsisV, FaPencilAlt, FaPlus, FaPlusCircle } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { assignments } from "../../Database";
 import { deleteAssignment } from './assignmentsReducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,11 +13,30 @@ function Assignments() {
 //   state.modulesReducer.module);
 // const dispatch = useDispatch();
 
-
-  const { courseId } = useParams();
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === courseId);
+    const { courseId } = useParams();
+    const assignmentsList = useSelector((state: KanbasState) =>
+        state.assignmentsReducer.assignments);
+    const assignmentList = assignmentsList.filter((a) => a.course === courseId);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const hello = () => {
+      const result = window.confirm("Do you want to proceed?");
+      if (result) {
+        // User clicked "OK" (true)
+        console.log("User clicked Yes");
+        return true;
+        // Perform your action here if the user clicks "Yes"
+      } else {
+        // User clicked "Cancel" (false)
+        console.log("User clicked No");
+        return false;
+        // Perform your action here if the user clicks "No" or cancels the dialog
+      }
+    };
+    
+
+  
 
   return (
     <div className="col me-2">
@@ -84,7 +103,9 @@ function Assignments() {
                   <div className="col-auto" style={{ margin: "auto", display: "flex" }}>
 
                   <button className="btn m-0 pt-0 pb-0 me-1 btn-danger btn-sm"
-                  onClick={() => dispatch(deleteAssignment(assignment._id))}>
+                  onClick={() => {hello() ? dispatch(deleteAssignment(assignment._id)) : 
+                    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+                  }}>
                   Delete</button>
 
                     <FaCheckCircle

@@ -2,10 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { assignments } from "../../Database";
 
 interface Assignment {
-    name: string;
+    title: string;
     description: string;
     points: string;
     dueDate: string;
+    _id: string,
     availableFromDate: string;
     availableUntilDate: string;
   }
@@ -14,9 +15,10 @@ interface Assignment {
 const initialState = {
     assignments: assignments,
     assignment: { 
-      name: "New Name", 
+      title: "New Name", 
       description: "New Description", 
-      points: "0", 
+      points: "100", 
+      _id: "",
       dueDate: new Date().toString(), 
       availableFromDate: new Date().toString(), 
       availableUntilDate: new Date().toString() 
@@ -36,8 +38,8 @@ const initialState = {
       },
       deleteAssignment: (state, action) => {
         state.assignments = state.assignments.filter(
-          (assignment) => assignment._id !== action.payload
-        );
+            (assignment) => assignment._id !== action.payload
+          );
       },
       updateAssignment: (state, action) => {
         state.assignments = state.assignments.map((assignment) => {
