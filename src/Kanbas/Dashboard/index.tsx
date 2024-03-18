@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { courses } from "../Database";
-import { FaPencilAlt } from "react-icons/fa";
+import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import "./index.css";
 import { Button } from "react-bootstrap";
 
@@ -53,22 +53,22 @@ function Dashboard({ courses, defaultCourse, setCourse, addNewCourse,
                                         style={{ textDecoration: "none", color: "navy", fontWeight: "bold", whiteSpace: "nowrap" }}>
                                         {course.name} </Link>
                                         <br/>
-                                        <Button variant="success btn-sm me-1" onClick={(event) => {
-                event.preventDefault();
-                setCourse(course);
-              }}>
-              Edit
-            </Button>
-
-                                        <Button variant="danger btn-sm me-1" onClick={(event) => {
-                        event.preventDefault();
-                        deleteCourse(course._id);
-                      }}>
-                      Delete
-              </Button>
-
+                                        
                                     <p className="card-text" style={{ color: "gray", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{course.description}</p>
-                                    <FaPencilAlt aria-hidden="true" className="wd-fg-color-gray" />
+                                    <button className="btn btn-sm me-1" onClick={(event) => {
+                                        event.preventDefault();
+                                        setCourse(course);
+                                    }}>
+                                        <FaPencilAlt aria-hidden="true" style={{color: "gray", height: "30px"}} /> {}
+
+                                    </button>
+
+                                    <button className="btn btn-sm me-1" onClick={(event) => {
+                                        event.preventDefault();
+                                        deleteCourse(course._id);
+                                    }}>
+                                        <FaTrash aria-hidden="true" style={{color: "red", height: "30px"}}/> {}
+                                    </button>
                                 </div>
                             </div>
                         </div>
