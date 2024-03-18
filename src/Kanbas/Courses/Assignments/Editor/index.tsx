@@ -7,6 +7,7 @@ import {
   deleteAssignment,
   updateAssignment,
   setAssignment,
+  cancelAssignmentUpdate
 } from "../assignmentsReducer";
 import { KanbasState } from "../../../store";
 
@@ -137,13 +138,9 @@ function AssignmentEditor() {
                             <div className="row" >
                                 <div className="col">
                                     <b>Available from </b>
-
                                 </div>
                                 <div className="col"><b>Until </b>
-
                                 </div>
-
-
                             </div>
 
                             <div className="row">
@@ -171,6 +168,7 @@ function AssignmentEditor() {
                 </span>
                 <span>
                   <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
+                    onClick={() => dispatch(cancelAssignmentUpdate(assignment))}
                     className="btn" style={{height: "fit-content", backgroundColor: "#E0E0E0"}}>
                     Cancel
                 </Link>
