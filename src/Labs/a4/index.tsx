@@ -1,38 +1,45 @@
 import React from "react";
-import ArrayStateVariable from "./ArrayStateVariables";
-import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
-import Counter from "./Counter";
-import DateStateVariable from "./DataStateVariables";
-import EventObject from "./EventObject";
-import ObjectStateVariable from "./ObjectStateVariables";
-import ParentStateComponent from "./ParentStateComponent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
-import PassingFunctions from "./PassingFunction";
-import ReduxExamples from "./ReduxExamples";
+import PassingFunctions from "./PassingFunctions";
+import EventObject from "./EventObject";
+import Counter from "./Counter";
+import BooleanStateVariables from "./BooleanStateVariables";
 import StringStateVariables from "./StringStateVariables";
-function sayHello() {
-  alert("Hello");
-}
+import DateStateVariable from "./DateStateVariable";
+import ObjectStateVariable from "./ObjectStateVariable";
+import ArrayStateVariable from "./ArrayStateVariable";
+import ParentStateComponent from "./ParentStateComponent";
+import HelloRedux from "./ReduxExamples/HelloRedux";
+import CounterRedux from "./ReduxExamples/CounterRedux";
+import AddRedux from "./ReduxExamples/AddRedux";
+import TodoList from "./ReduxExamples/todos/TodoList";
+
 const Assignment4 = () => {
+    function sayHello() {
+        alert("Hello");
+      }
+
+    
   return(
     <>
       <h1>Assignment 4</h1>
-      <ClickEvent/>
-      <PassingDataOnEvent/>
+      <ClickEvent />
+      <PassingDataOnEvent />
       <PassingFunctions theFunction={sayHello} />
-      <EventObject/>
-      <Counter/>
-      <BooleanStateVariables/>
-      <StringStateVariables/>
-      <DateStateVariable/>
-      <ObjectStateVariable/>
-      <ArrayStateVariable/>
-      <ParentStateComponent/>
-      <ReduxExamples/>
-
+      <EventObject />
+      <Counter />
+      <BooleanStateVariables />
+      <StringStateVariables />
+      <DateStateVariable />
+      <ObjectStateVariable />
+      <ArrayStateVariable />
+      <ParentStateComponent />
+      <HelloRedux />
+      <CounterRedux />
+      <AddRedux />
+      <TodoList />
     </>
   );
 };
 export default Assignment4;
-

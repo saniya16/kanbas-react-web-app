@@ -24,4 +24,3 @@ function ArrayStateVariable() {
   );
 }
 export default ArrayStateVariable;
-

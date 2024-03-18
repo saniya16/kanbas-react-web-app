@@ -1,4 +1,5 @@
-function ChildStateComponent({ counter, setCounter }:
+function ChildStateComponent(
+    { counter, setCounter }:
     { counter: number;
       setCounter: (counter: number) => void;}) {
       return (
@@ -12,5 +13,3 @@ function ChildStateComponent({ counter, setCounter }:
       );
     }
     export default ChildStateComponent;
-    
-    

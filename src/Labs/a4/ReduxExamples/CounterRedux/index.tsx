@@ -14,4 +14,3 @@ function CounterRedux() {
   );
 }
 export default CounterRedux;
-

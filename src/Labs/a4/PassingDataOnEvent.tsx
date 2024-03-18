@@ -14,4 +14,3 @@ const add = (a: number, b: number) => {
   }
   export default PassingDataOnEvent;
   
-  

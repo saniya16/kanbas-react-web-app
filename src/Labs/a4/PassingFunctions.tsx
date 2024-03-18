@@ -9,5 +9,3 @@ function PassingFunctions({ theFunction }: { theFunction: () => void }) {
     );
   }
   export default PassingFunctions;
-  
-  

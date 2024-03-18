@@ -16,4 +16,3 @@ function BooleanStateVariables() {
   );
 }
 export default BooleanStateVariables;
-
