@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { courses } from "../Database";
 import { FaPencilAlt } from "react-icons/fa";
 import "./index.css";
+import { Button } from "react-bootstrap";
 
 function Dashboard({ courses, defaultCourse, setCourse, addNewCourse,
     deleteCourse, updateCourse }: {
@@ -29,12 +30,12 @@ function Dashboard({ courses, defaultCourse, setCourse, addNewCourse,
       <input value={defaultCourse.endDate} className="form-control" type="date"
              onChange={(e) => setCourse({ ...defaultCourse, endDate: e.target.value }) } />
              <br/>
-            <button onClick={addNewCourse} >
+            <Button variant="danger btn-sm me-1" onClick={addNewCourse} >
             Add
-            </button>
-            <button onClick={updateCourse} >
+            </Button>
+            <Button variant="primary btn-sm me-1" onClick={updateCourse} >
         Update
-      </button>
+      </Button>
 
             <br/>
 
@@ -52,19 +53,19 @@ function Dashboard({ courses, defaultCourse, setCourse, addNewCourse,
                                         style={{ textDecoration: "none", color: "navy", fontWeight: "bold", whiteSpace: "nowrap" }}>
                                         {course.name} </Link>
                                         <br/>
-                                        <button onClick={(event) => {
+                                        <Button variant="success btn-sm me-1" onClick={(event) => {
                 event.preventDefault();
                 setCourse(course);
               }}>
               Edit
-            </button>
+            </Button>
 
-                                        <button onClick={(event) => {
+                                        <Button variant="danger btn-sm me-1" onClick={(event) => {
                         event.preventDefault();
                         deleteCourse(course._id);
                       }}>
                       Delete
-              </button>
+              </Button>
 
                                     <p className="card-text" style={{ color: "gray", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{course.description}</p>
                                     <FaPencilAlt aria-hidden="true" className="wd-fg-color-gray" />

@@ -3,10 +3,22 @@ import "./index.css"
 import { FaCheckCircle, FaChevronDown, FaEllipsisV, FaPencilAlt, FaPlus, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { assignments } from "../../Database";
+import { deleteAssignment } from './assignmentsReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { KanbasState } from '../../store';
 function Assignments() {
+//   const assignmentList = useSelector((state: KanbasState) => 
+//   state.modulesReducer.modules);
+// const module = useSelector((state: KanbasState) => 
+//   state.modulesReducer.module);
+// const dispatch = useDispatch();
+
+
   const { courseId } = useParams();
   const assignmentList = assignments.filter(
     (assignment) => assignment.course === courseId);
+    const dispatch = useDispatch();
+
   return (
     <div className="col me-2">
       <div className="row wd-margin-top">
@@ -70,6 +82,10 @@ function Assignments() {
                     <br /><b>Due</b> {assignment.dueDateTime} | 100 points
                   </div>
                   <div className="col-auto" style={{ margin: "auto", display: "flex" }}>
+
+                  <button className="btn m-0 pt-0 pb-0 me-1 btn-danger btn-sm"
+                  onClick={() => dispatch(deleteAssignment(assignment._id))}>
+                  Delete</button>
 
                     <FaCheckCircle
                       style={{ color: "green" }} />
