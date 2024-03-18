@@ -1,23 +1,39 @@
 import React from 'react';
 import { assignments } from '../../../Database';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignment,
+} from "../assignmentsReducer";
+import { KanbasState } from "../../../store";
+
 
 function AssignmentEditor() {
     const { assignmentId, courseId } = useParams();
-    const assignment = assignments.find((assignment) =>
-        assignment._id === assignmentId);
+
+    const assignmentList = useSelector((state: KanbasState) => 
+    state.assignmentsReducer.assignments);
+  const assignment = useSelector((state: KanbasState) => 
+    state.assignmentsReducer.assignment);
+  const dispatch = useDispatch();
+
+    // const assignment = assignments.find((assignment) =>
+    //     assignment._id === assignmentId);
     const navigate = useNavigate();
-    const handleSave = () => {
-        console.log("Actually saving assignment TBD in later assignments");
-        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    };
+    
     return (
         <div>
             <h2>Assignment Name</h2>
-            <input value={assignment?.title}
-                className="form-control mb-2" />
-            <br />
-            <textarea className="form-control" cols={50} rows={5}>Hello</textarea>
+            <input 
+                className="form-control mb-2" 
+                value={assignment.name}
+                onChange={(e: { target: { value: any; }; }) =>  dispatch(setAssignment({ ...assignment, name: e.target.value }))}/><br/>
+            <textarea className="form-control" cols={50} rows={5}
+            value={assignment.description}
+            onChange={(e) =>  dispatch(setAssignment({ ...assignment, description: e.target.value }))}>Hello</textarea>
             <br />
             <div className="row g-0 text-end" style={{ paddingBottom: "15px" }}>
                 <div className="col-6 col-md-4" style={{ paddingTop: "5px", paddingRight: "15px" }}>
@@ -29,7 +45,8 @@ function AssignmentEditor() {
                         type="number"
                         placeholder="Points"
                         aria-label="default input example"
-                        value="100"
+                        value={assignment.points}
+                        onChange={(e) =>  dispatch(setAssignment({ ...assignment, points: e.target.value }))}
                     />
                 </div>
             </div>
@@ -109,7 +126,9 @@ function AssignmentEditor() {
                         />
                         <br />
                         <b>Due</b>
-                        <input className="form-control" type="datetime-local" />
+                        <input className="form-control" type="datetime-local" 
+                        value={assignment.dueDate}
+                        onChange={(e) =>  dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))}/>
                         <br />
                         <div
                             className="wd-flex-row-container"
@@ -129,10 +148,14 @@ function AssignmentEditor() {
 
                             <div className="row">
                                 <div className="col">
-                                    <input className="form-control w-75" type="datetime-local" />
+                                    <input className="form-control w-75" type="datetime-local" 
+                                    value={assignment.availableFromDate}
+                                    onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableFromDate: e.target.value }))}/>
                                 </div>
                                 <div className="col">
-                                    <input className="form-control w-75" type="datetime-local" />
+                                    <input className="form-control w-75" type="datetime-local" 
+                                    value={assignment.availableUntil}
+                                    onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableUntil: e.target.value }))}/>
                                 </div>
 
                             </div>
@@ -151,7 +174,7 @@ function AssignmentEditor() {
                     className="btn" style={{height: "fit-content", backgroundColor: "#E0E0E0"}}>
                     Cancel
                 </Link>
-                  <button onClick={handleSave} className="btn btn-danger" style={{marginRight: "5px"}}>
+                  <button  onClick={() => dispatch(updateAssignment(assignment))}className="btn btn-danger" style={{marginRight: "5px"}}>
                     Save
                 </button>
                 </span>

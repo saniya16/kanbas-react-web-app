@@ -17,10 +17,10 @@ function Assignments() {
             </a>
           </div>
           <div className="wd-button float-end">
-            <Button variant="danger btn-sm">
-              <FaPlus className="me-1" />
+          <Link to={"../Assignments/Editor"} className="btn btn-danger btn-sm" role="button">
+            <FaPlus className="me-1" />
               Assignment
-            </Button>{' '}
+            </Link>
           </div>
 
           <div className="wd-button float-end">
