@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { assignments } from '../../../Database';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
@@ -7,7 +7,8 @@ import {
   deleteAssignment,
   updateAssignment,
   setAssignment,
-  cancelAssignmentUpdate
+  cancelAssignmentUpdate,
+  setInitial
 } from "../assignmentsReducer";
 import { KanbasState } from "../../../store";
 
@@ -21,14 +22,22 @@ function AssignmentEditor() {
         state.assignmentsReducer.assignment);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    useEffect(() => {
+        const assignmentData = assignmentList.find(a => a._id === assignmentId);
+        if (assignmentData) {
+          dispatch(setAssignment(assignmentData));
+        } else {
+            dispatch(setInitial(assignment));
+        }
+      }, [dispatch, assignmentId]);
     const handleSave = () => {
         if (isNewAssignment) {
             const newAssignment = { ...assignment, _id: new Date().getTime().toString(), course: courseId };
             console.log(newAssignment);
-            dispatch(updateAssignment(newAssignment._id));
+            dispatch(updateAssignment(newAssignment));
             dispatch(addAssignment(newAssignment));
         } else {
-            dispatch(updateAssignment(assignment._id));
+            dispatch(updateAssignment(assignment));
         }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
@@ -159,8 +168,8 @@ function AssignmentEditor() {
                                 </div>
                                 <div className="col">
                                     <input className="form-control w-75" type="datetime-local" 
-                                    value={assignment.availableUntil}
-                                    onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableUntil: e.target.value }))}/>
+                                    value={assignment.availableUntilDate}
+                                    onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableUntilDate: e.target.value }))}/>
                                 </div>
 
                             </div>

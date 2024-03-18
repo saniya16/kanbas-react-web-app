@@ -23,15 +23,11 @@ function Assignments() {
     const hello = () => {
       const result = window.confirm("Do you want to proceed?");
       if (result) {
-        // User clicked "OK" (true)
         console.log("User clicked Yes");
         return true;
-        // Perform your action here if the user clicks "Yes"
       } else {
-        // User clicked "Cancel" (false)
         console.log("User clicked No");
         return false;
-        // Perform your action here if the user clicks "No" or cancels the dialog
       }
     };
     
@@ -98,7 +94,7 @@ function Assignments() {
                     </Link>
                     <br />
                     {assignment.description} |
-                    <br /><b>Due</b> {assignment.dueDateTime} | 100 points
+                    <br /><b>Due</b> {assignment.dueDate} | {assignment.points} points
                   </div>
                   <div className="col-auto" style={{ margin: "auto", display: "flex" }}>
 

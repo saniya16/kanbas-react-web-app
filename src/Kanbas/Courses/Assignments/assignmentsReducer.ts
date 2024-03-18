@@ -14,6 +14,8 @@ interface Assignment {
 
 const initialState = {
     assignments: assignments,
+
+
     assignment: { 
       title: "New Name", 
       description: "New Description", 
@@ -52,12 +54,14 @@ const initialState = {
           }
         });
       },
+      setInitial: (state, action) => {
+        state.assignment = initialState.assignment
+      },
+      
       cancelAssignmentUpdate: (state, action) => {
-        // Revert assignment to previousState
         state.assignment = state.previousState!;
       },
       setAssignment: (state, action) => {
-        // Update previousState before updating assignment
         state.assignment = action.payload;
       },
     },
@@ -65,6 +69,6 @@ const initialState = {
   
 
 export const { addAssignment, deleteAssignment,
-  updateAssignment, setAssignment, cancelAssignmentUpdate } = assignmentsSlice.actions;
+  updateAssignment, setAssignment, cancelAssignmentUpdate, setInitial } = assignmentsSlice.actions;
 export default assignmentsSlice.reducer;
 
