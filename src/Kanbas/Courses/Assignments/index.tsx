@@ -1,12 +1,39 @@
 import Button from 'react-bootstrap/Button';
 import "./index.css"
 import { FaCheckCircle, FaChevronDown, FaEllipsisV, FaPencilAlt, FaPlus, FaPlusCircle } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { assignments } from "../../Database";
+import { deleteAssignment } from './assignmentsReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { KanbasState } from '../../store';
 function Assignments() {
-  const { courseId } = useParams();
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === courseId);
+//   const assignmentList = useSelector((state: KanbasState) => 
+//   state.modulesReducer.modules);
+// const module = useSelector((state: KanbasState) => 
+//   state.modulesReducer.module);
+// const dispatch = useDispatch();
+
+    const { courseId } = useParams();
+    const assignmentsList = useSelector((state: KanbasState) =>
+        state.assignmentsReducer.assignments);
+    const assignmentList = assignmentsList.filter((a) => a.course === courseId);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const hello = () => {
+      const result = window.confirm("Do you want to proceed?");
+      if (result) {
+        console.log("User clicked Yes");
+        return true;
+      } else {
+        console.log("User clicked No");
+        return false;
+      }
+    };
+    
+
+  
+
   return (
     <div className="col me-2">
       <div className="row wd-margin-top">
@@ -17,10 +44,10 @@ function Assignments() {
             </a>
           </div>
           <div className="wd-button float-end">
-            <Button variant="danger btn-sm">
-              <FaPlus className="me-1" />
+          <Link to={"../Assignments/Editor"} className="btn btn-danger btn-sm" role="button">
+            <FaPlus className="me-1" />
               Assignment
-            </Button>{' '}
+            </Link>
           </div>
 
           <div className="wd-button float-end">
@@ -67,9 +94,15 @@ function Assignments() {
                     </Link>
                     <br />
                     {assignment.description} |
-                    <br /><b>Due</b> {assignment.dueDateTime} | 100 points
+                    <br /><b>Due</b> {assignment.dueDate} | {assignment.points} points
                   </div>
                   <div className="col-auto" style={{ margin: "auto", display: "flex" }}>
+
+                  <button className="btn m-0 pt-0 pb-0 me-1 btn-danger btn-sm"
+                  onClick={() => {hello() ? dispatch(deleteAssignment(assignment._id)) : 
+                    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+                  }}>
+                  Delete</button>
 
                     <FaCheckCircle
                       style={{ color: "green" }} />

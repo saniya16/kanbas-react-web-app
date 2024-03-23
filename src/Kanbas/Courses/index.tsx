@@ -10,7 +10,7 @@ import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import { FaBars, FaChevronDown } from "react-icons/fa";
 
-function Courses() {
+function Courses({ courses }: { courses: any[]; }) {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
   return (
@@ -33,6 +33,7 @@ function Courses() {
               <Route path="Modules" element={<Modules />} />
               <Route path="Piazza" element={<h1>Piazza</h1>} />
               <Route path="Assignments" element={<Assignments />} />
+              <Route path="Assignments/Editor" element={<AssignmentEditor />} />
               <Route path="Assignments/:assignmentId" element={<AssignmentEditor />} />
               <Route path="Grades" element={<Grades />} />
             </Routes>

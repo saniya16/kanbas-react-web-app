@@ -1,23 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { assignments } from '../../../Database';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignment,
+  cancelAssignmentUpdate,
+  setInitial
+} from "../assignmentsReducer";
+import { KanbasState } from "../../../store";
+
 
 function AssignmentEditor() {
     const { assignmentId, courseId } = useParams();
-    const assignment = assignments.find((assignment) =>
-        assignment._id === assignmentId);
+    const isNewAssignment = !assignmentId || assignmentId.trim() === '';
+    const assignmentList = useSelector((state: KanbasState) =>
+        state.assignmentsReducer.assignments);
+    const assignment = useSelector((state: KanbasState) =>
+        state.assignmentsReducer.assignment);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    useEffect(() => {
+        const assignmentData = assignmentList.find(a => a._id === assignmentId);
+        if (assignmentData) {
+          dispatch(setAssignment(assignmentData));
+        } else {
+            dispatch(setInitial(assignment));
+        }
+      }, [dispatch, assignmentId]);
     const handleSave = () => {
-        console.log("Actually saving assignment TBD in later assignments");
+        if (isNewAssignment) {
+            const newAssignment = { ...assignment, _id: new Date().getTime().toString(), course: courseId };
+            console.log(newAssignment);
+            dispatch(updateAssignment(newAssignment));
+            dispatch(addAssignment(newAssignment));
+        } else {
+            dispatch(updateAssignment(assignment));
+        }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    };
+    }
+    
     return (
         <div>
             <h2>Assignment Name</h2>
-            <input value={assignment?.title}
-                className="form-control mb-2" />
-            <br />
-            <textarea className="form-control" cols={50} rows={5}>Hello</textarea>
+            <input 
+                className="form-control mb-2" 
+                value={assignment.title}
+                onChange={(e: { target: { value: any; }; }) =>  dispatch(setAssignment({ ...assignment, title: e.target.value }))}/><br/>
+            <textarea className="form-control" cols={50} rows={5}
+            value={assignment.description}
+            onChange={(e) =>  dispatch(setAssignment({ ...assignment, description: e.target.value }))}>Hello</textarea>
             <br />
             <div className="row g-0 text-end" style={{ paddingBottom: "15px" }}>
                 <div className="col-6 col-md-4" style={{ paddingTop: "5px", paddingRight: "15px" }}>
@@ -29,7 +63,8 @@ function AssignmentEditor() {
                         type="number"
                         placeholder="Points"
                         aria-label="default input example"
-                        value="100"
+                        value={assignment.points}
+                        onChange={(e) =>  dispatch(setAssignment({ ...assignment, points: e.target.value }))}
                     />
                 </div>
             </div>
@@ -109,7 +144,9 @@ function AssignmentEditor() {
                         />
                         <br />
                         <b>Due</b>
-                        <input className="form-control" type="datetime-local" />
+                        <input className="form-control" type="datetime-local" 
+                        value={assignment.dueDate}
+                        onChange={(e) =>  dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))}/>
                         <br />
                         <div
                             className="wd-flex-row-container"
@@ -118,21 +155,21 @@ function AssignmentEditor() {
                             <div className="row" >
                                 <div className="col">
                                     <b>Available from </b>
-
                                 </div>
                                 <div className="col"><b>Until </b>
-
                                 </div>
-
-
                             </div>
 
                             <div className="row">
                                 <div className="col">
-                                    <input className="form-control w-75" type="datetime-local" />
+                                    <input className="form-control w-75" type="datetime-local" 
+                                    value={assignment.availableFromDate}
+                                    onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableFromDate: e.target.value }))}/>
                                 </div>
                                 <div className="col">
-                                    <input className="form-control w-75" type="datetime-local" />
+                                    <input className="form-control w-75" type="datetime-local" 
+                                    value={assignment.availableUntilDate}
+                                    onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableUntilDate: e.target.value }))}/>
                                 </div>
 
                             </div>
@@ -148,10 +185,11 @@ function AssignmentEditor() {
                 </span>
                 <span>
                   <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
+                    onClick={() => dispatch(cancelAssignmentUpdate(assignment))}
                     className="btn" style={{height: "fit-content", backgroundColor: "#E0E0E0"}}>
                     Cancel
                 </Link>
-                  <button onClick={handleSave} className="btn btn-danger" style={{marginRight: "5px"}}>
+                  <button  onClick={handleSave} className="btn btn-danger" style={{marginRight: "5px"}}>
                     Save
                 </button>
                 </span>
