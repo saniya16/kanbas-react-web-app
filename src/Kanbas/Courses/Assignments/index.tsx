@@ -39,6 +39,12 @@ function Assignments() {
         dispatch(setAssignments(assignments))
       );
     }, [courseId, dispatch]);
+
+    const handleDeleteModule = (assignmentId:string) => {
+      service.deleteAssignment(assignmentId).then((status) => {
+        dispatch(deleteAssignment(assignmentId));
+      });
+    };
     
 
   
@@ -108,7 +114,7 @@ function Assignments() {
                   <div className="col-auto" style={{ margin: "auto", display: "flex" }}>
 
                   <button className="btn m-0 pt-0 pb-0 me-1 btn-danger btn-sm"
-                  onClick={() => {hello() ? dispatch(deleteAssignment(assignment._id)) : 
+                  onClick={() => {hello() ? handleDeleteModule(assignment._id) : 
                     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
                   }}>
                   Delete</button>

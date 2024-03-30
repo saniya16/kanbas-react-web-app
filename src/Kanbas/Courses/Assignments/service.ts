@@ -6,3 +6,10 @@ export const findAssignmentsForCourse = async (courseId:string | undefined) => {
       .get(`${COURSES_API}/${courseId}/assignments`);
     return response.data;
   };
+
+
+export const deleteAssignment = async (assignmentId:String) => {
+  const response = await axios
+    .delete(`${ASSIGNMENTS_API}/${assignmentId}`);
+  return response.data;
+};
