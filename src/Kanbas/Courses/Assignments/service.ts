@@ -13,3 +13,17 @@ export const deleteAssignment = async (assignmentId:String) => {
     .delete(`${ASSIGNMENTS_API}/${assignmentId}`);
   return response.data;
 };
+
+export const updateAssignment = async (assignment: { _id: string; }) => {
+    const response = await axios.
+      put(`${ASSIGNMENTS_API}/${assignment._id}`, assignment);
+    return response.data;
+  };
+
+export const createAssignment = async (courseId: string | undefined, assignment:string) => {
+    const response = await axios.post(
+      `${COURSES_API}/${courseId}/assignments`,
+      assignment
+    );
+    return response.data;
+  };

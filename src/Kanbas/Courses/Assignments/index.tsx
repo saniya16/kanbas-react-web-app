@@ -2,7 +2,6 @@ import Button from 'react-bootstrap/Button';
 import "./index.css"
 import { FaCheckCircle, FaChevronDown, FaEllipsisV, FaPencilAlt, FaPlus, FaPlusCircle } from "react-icons/fa";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
 import { deleteAssignment, setAssignment, setAssignments } from './assignmentsReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { KanbasState } from '../../store';

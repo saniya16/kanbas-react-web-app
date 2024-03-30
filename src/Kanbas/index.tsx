@@ -4,7 +4,6 @@ import Dashboard from "./Dashboard";
 import Courses from "./Courses";
 import {Link} from "react-router-dom"
 import Nav from "../Nav";
-import { courses } from "./Database";
 import { useState, useEffect } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
