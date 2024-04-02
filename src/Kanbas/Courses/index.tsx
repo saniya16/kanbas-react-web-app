@@ -1,4 +1,3 @@
-import { courses } from "../../Kanbas/Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
@@ -9,10 +8,27 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import { FaBars, FaChevronDown } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import axios from "axios";
+const API_BASE = process.env.REACT_APP_API_BASE;
 
-function Courses({ courses }: { courses: any[]; }) {
+function Courses() {
   const { courseId } = useParams();
-  const course = courses.find((course) => course._id === courseId);
+  const COURSES_API = `${API_BASE}/api/courses`;
+
+  //const course = courses.find((course) => course._id === courseId);
+  const [course, setCourse] = useState<any>({ _id: "" });
+  const findCourseById = async (courseId?: string) => {
+    const response = await axios.get(
+      `${COURSES_API}/${courseId}`
+    );
+    setCourse(response.data);
+  };
+
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+
   return (
     <div className="mx-3 my-3">
       <div className="row">

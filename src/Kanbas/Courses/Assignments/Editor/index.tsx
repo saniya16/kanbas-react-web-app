@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
-import { assignments } from '../../../Database';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import {
   addAssignment,
-  deleteAssignment,
   updateAssignment,
   setAssignment,
   cancelAssignmentUpdate,
   setInitial
 } from "../assignmentsReducer";
 import { KanbasState } from "../../../store";
+import * as service from "../service";
 
 
 function AssignmentEditor() {
@@ -34,13 +33,24 @@ function AssignmentEditor() {
         if (isNewAssignment) {
             const newAssignment = { ...assignment, _id: new Date().getTime().toString(), course: courseId };
             console.log(newAssignment);
-            dispatch(updateAssignment(newAssignment));
-            dispatch(addAssignment(newAssignment));
+            //dispatch(updateAssignment(newAssignment));
+            handleAddAssignment();
         } else {
-            dispatch(updateAssignment(assignment));
+            handleUpdateModule();
         }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
+
+    const handleAddAssignment = () => {
+        service.createAssignment(courseId, assignment).then((assignment) => {
+          dispatch(addAssignment(assignment));
+        });
+      };
+
+    const handleUpdateModule = async () => {
+        const status = await service.updateAssignment(assignment);
+        dispatch(updateAssignment(assignment));
+      };
     
     return (
         <div>

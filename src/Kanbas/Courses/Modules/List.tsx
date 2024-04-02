@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
-import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 import { Button } from "react-bootstrap";
+import * as client from "./client";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -11,6 +11,7 @@ import {
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./reducer";
 import { KanbasState } from "../../store";
 
@@ -24,13 +25,35 @@ function ModuleList() {
     state.modulesReducer.module);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    client.findModulesForCourse(courseId).then((modules) =>
+      dispatch(setModules(modules))
+    );
+  }, [courseId, dispatch]);
+
+  const handleAddModule = () => {
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId:string) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
 
 
   
   //const modulesList = modules.filter((module) => module.course === courseId);
   const [selectedModule, setSelectedModule] = useState(moduleList[0]);
   
-
   return (
     <>
       {/* <!-- Add buttons here --> */}
@@ -45,9 +68,12 @@ function ModuleList() {
 />
         </div>
         <div className= "col-auto">
-          <Button variant="success btn-sm me-1"  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add </Button>
+        <Button variant="success btn-sm me-1"
+          onClick={handleAddModule}>
+          Add
+        </Button>
 
-          <Button variant="primary btn-sm me-1" onClick={() => dispatch(updateModule(module))}>
+          <Button variant="primary btn-sm me-1" onClick={handleUpdateModule}>
                 Update
         </Button>
 
@@ -80,7 +106,7 @@ function ModuleList() {
               Edit
             </button>
               <button className="btn m-0 pt-0 pb-0 me-1 btn-danger btn-sm"
-               onClick={() => dispatch(deleteModule(module._id))}>
+               onClick={() =>  handleDeleteModule(module._id)}>
               Delete</button>
                 <FaCheckCircle className="text-success" />
                 <FaPlusCircle className="ms-2" />
@@ -89,7 +115,7 @@ function ModuleList() {
              
            
             </div>
-            {selectedModule._id === module._id && (
+            {selectedModule?._id === module?._id && (
               <ul className="list-group">
                 {module.lessons?.map((lesson: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
                   <li className="list-group-item">
@@ -101,8 +127,6 @@ function ModuleList() {
                     </span>
                   </li>
                 ))}
-                
-
 
               </ul>
             )}

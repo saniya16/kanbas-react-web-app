@@ -13,7 +13,7 @@ interface Assignment {
   
 
 const initialState = {
-    assignments: assignments,
+    assignments: [] as Assignment[],
 
 
     assignment: { 
@@ -32,6 +32,10 @@ const initialState = {
     name: "assignments",
     initialState,
     reducers: {
+      setAssignments: (state, action) => {
+        state.assignments = action.payload;
+      },
+
       addAssignment: (state, action) => {
         state.assignments = [
           { ...action.payload, _id: new Date().getTime().toString() },
@@ -69,6 +73,6 @@ const initialState = {
   
 
 export const { addAssignment, deleteAssignment,
-  updateAssignment, setAssignment, cancelAssignmentUpdate, setInitial } = assignmentsSlice.actions;
+  updateAssignment, setAssignment, cancelAssignmentUpdate, setInitial, setAssignments } = assignmentsSlice.actions;
 export default assignmentsSlice.reducer;
 

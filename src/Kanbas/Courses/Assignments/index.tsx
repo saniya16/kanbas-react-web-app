@@ -2,10 +2,11 @@ import Button from 'react-bootstrap/Button';
 import "./index.css"
 import { FaCheckCircle, FaChevronDown, FaEllipsisV, FaPencilAlt, FaPlus, FaPlusCircle } from "react-icons/fa";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
-import { deleteAssignment } from './assignmentsReducer';
+import { deleteAssignment, setAssignment, setAssignments } from './assignmentsReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { KanbasState } from '../../store';
+import { useEffect } from 'react';
+import * as service from "./service";
 function Assignments() {
 //   const assignmentList = useSelector((state: KanbasState) => 
 //   state.modulesReducer.modules);
@@ -14,9 +15,9 @@ function Assignments() {
 // const dispatch = useDispatch();
 
     const { courseId } = useParams();
-    const assignmentsList = useSelector((state: KanbasState) =>
+    const assignmentList = useSelector((state: KanbasState) =>
         state.assignmentsReducer.assignments);
-    const assignmentList = assignmentsList.filter((a) => a.course === courseId);
+    //const assignmentList = assignmentsList.filter((a) => a.course === courseId);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -29,6 +30,19 @@ function Assignments() {
         console.log("User clicked No");
         return false;
       }
+    };
+
+
+    useEffect(() => {
+      service.findAssignmentsForCourse(courseId).then((assignments) =>
+        dispatch(setAssignments(assignments))
+      );
+    }, [courseId, dispatch]);
+
+    const handleDeleteModule = (assignmentId:string) => {
+      service.deleteAssignment(assignmentId).then((status) => {
+        dispatch(deleteAssignment(assignmentId));
+      });
     };
     
 
@@ -99,7 +113,7 @@ function Assignments() {
                   <div className="col-auto" style={{ margin: "auto", display: "flex" }}>
 
                   <button className="btn m-0 pt-0 pb-0 me-1 btn-danger btn-sm"
-                  onClick={() => {hello() ? dispatch(deleteAssignment(assignment._id)) : 
+                  onClick={() => {hello() ? handleDeleteModule(assignment._id) : 
                     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
                   }}>
                   Delete</button>
