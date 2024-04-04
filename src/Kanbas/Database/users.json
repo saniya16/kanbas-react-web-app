@@ -180,6 +180,7 @@
         "role": "STUDENT"
     },
     {
+        "_id": "219",
         "username": "jackson_smith",
         "password": "smith123",
         "firstName": "Jackson",
@@ -189,11 +190,12 @@
         "role": "STUDENT"
     },
     {
+        "_id": "220",
         "username": "olivia_taylor",
         "password": "taylor123",
         "firstName": "Olivia",
-        "lastName":"Taylor",
-        "email": "taylor.olivia@gmail.com",
+        "lastName":"Rogers",
+        "email": "jackson.smith@gmail.com",
         "dob": "February 14, 1983",
         "role": "STUDENT"
     }

@@ -10,14 +10,17 @@ import Grades from "./Grades";
 import { FaBars, FaChevronDown } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
-const API_BASE = process.env.REACT_APP_API_BASE;
+const BASE_API = process.env.REACT_APP_API_BASE;
+export const COURSES_API = `${BASE_API}/api/courses`;
 
 function Courses() {
   const { courseId } = useParams();
-  const COURSES_API = `${API_BASE}/api/courses`;
+  //const COURSES_API = `${BASE_API}/api/courses`;
 
   //const course = courses.find((course) => course._id === courseId);
   const [course, setCourse] = useState<any>({ _id: "" });
+  
+  
   const findCourseById = async (courseId?: string) => {
     const response = await axios.get(
       `${COURSES_API}/${courseId}`
