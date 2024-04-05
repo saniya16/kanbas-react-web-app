@@ -22,8 +22,35 @@ function AssignmentEditor() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
-        const assignmentData = assignmentList.find(a => a._id === assignmentId);
+        const assignmentDataMain = assignmentList.find((a) => a._id === assignmentId);
+        const assignmentData = { ...assignmentDataMain };
         if (assignmentData) {
+            if (
+                assignmentData.availableFromDate &&
+                assignmentData.availableFromDate !== ""
+              ) {
+        
+                assignmentData.availableFromDate = new Date(
+                  assignmentData.availableFromDate
+                )
+                  .toISOString()
+                  .split("T")[0];
+              }
+              if (
+                assignmentData.availableUntilDate &&
+                assignmentData.availableUntilDate !== ""
+              ) {
+                assignmentData.availableUntilDate = new Date(
+                  assignmentData.availableUntilDate
+                )
+                  .toISOString()
+                  .split("T")[0];
+              }
+              if (assignmentData.dueDate && assignmentData.dueDate !== "") {
+                assignmentData.dueDate = new Date(assignmentData.dueDate)
+                  .toISOString()
+                  .split("T")[0];
+              } 
           dispatch(setAssignment(assignmentData));
         } else {
             dispatch(setInitial(assignment));
@@ -154,9 +181,11 @@ function AssignmentEditor() {
                         />
                         <br />
                         <b>Due</b>
-                        <input className="form-control" type="datetime-local" 
+                        <input className="form-control" type="date" 
                         value={assignment.dueDate}
-                        onChange={(e) =>  dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))}/>
+                        
+                        onChange={(e) =>  dispatch(
+                            setAssignment({ ...assignment, dueDate: e.target.value }))}/>
                         <br />
                         <div
                             className="wd-flex-row-container"
@@ -172,12 +201,13 @@ function AssignmentEditor() {
 
                             <div className="row">
                                 <div className="col">
-                                    <input className="form-control w-75" type="datetime-local" 
+                                    <input className="form-control w-75" type="date" 
                                     value={assignment.availableFromDate}
-                                    onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableFromDate: e.target.value }))}/>
+                                    onChange={(e) =>  dispatch(
+                                        setAssignment({ ...assignment, availableFromDate: e.target.value }))}/>
                                 </div>
                                 <div className="col">
-                                    <input className="form-control w-75" type="datetime-local" 
+                                    <input className="form-control w-75" type="date" 
                                     value={assignment.availableUntilDate}
                                     onChange={(e) =>  dispatch(setAssignment({ ...assignment, availableUntilDate: e.target.value }))}/>
                                 </div>

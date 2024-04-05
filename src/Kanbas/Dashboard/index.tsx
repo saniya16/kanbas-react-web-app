@@ -57,6 +57,10 @@ function Dashboard({ courses, defaultCourse, setCourse, addNewCourse,
                                     <p className="card-text" style={{ color: "gray", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{course.description}</p>
                                     <button className="btn btn-sm me-1" onClick={(event) => {
                                         event.preventDefault();
+                                        if (course !== null && course.startDate && course.endDate !== "") {
+                                            course.startDate = new Date(course.startDate).toISOString().split("T")[0];
+                                            course.endDate = new Date(course.endDate).toISOString().split("T")[0];
+                                          }
                                         setCourse(course);
                                     }}>
                                         <FaPencilAlt aria-hidden="true" style={{color: "gray", height: "30px"}} /> {}
