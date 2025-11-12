@@ -32,9 +32,9 @@ Backend repo - [Kanbas Backend](https://github.com/saniya16/kanbas-node-server-a
 
 ## Screenshots
 <div align="center">
-  <img src="https://github.com/saniya16/kanbas-react-web-app/edit/main/Screenshots/1.png" width="500"  alt="Dashboard">
-  <img src="https://github.com/saniya16/kanbas-react-web-app/edit/main/Screenshots/2.png" width="500" alt="Module Page">
-  <img src="https://github.com/saniya16/kanbas-react-web-app/edit/main/Screenshots/3.png" width="500" alt="Assignment Page">
+  <img src="https://github.com/saniya16/kanbas-react-web-app/blob/main/Screenshots/1.png" width="500"  alt="Dashboard">
+  <img src="https://github.com/saniya16/kanbas-react-web-app/blob/main/Screenshots/2.png" width="500" alt="Module Page">
+  <img src="https://github.com/saniya16/kanbas-react-web-app/blob/main/Screenshots/3.png" width="500" alt="Assignment Page">
 </div>
 
 ## Installation
